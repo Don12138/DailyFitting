@@ -1,0 +1,6 @@
+<view>
+<text>
+{{dailyTask[index].remarks}}
+</text>
+<image src="/images/getUp.png" class="image"></image>
+</view>

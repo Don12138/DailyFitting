@@ -1,0 +1,158 @@
+.userinfo-avatar {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  position: relative;
+  bottom: 1.5vh;
+  border-radius: 50%;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  height: 18.74vh;
+}
+
+.day_show {
+  flex-direction: column;
+  justify-content: space-around;
+  display: flex;
+  width: 500rpx;
+  height: 16.49vh;
+  background: #41dda6a1;
+  box-shadow: 8rpx 8rpx 8rpx 8rpx rgb(71, 224, 191);
+}
+
+.day_title {
+  position: relative;
+  left: 40rpx;
+}
+
+.swiper_head {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 19vh;
+  height: 5.99vh;
+  width: 640rpx;
+  background: rgba(75, 211, 181, 0.295);
+  box-shadow: 0rpx 5rpx 5rpx 5rpx rgba(168, 228, 215, 0.63);
+}
+
+.swiper {
+  width: 650rpx;
+  height: 73vh;
+  background: rgba(200, 238, 232, 0.192);
+}
+
+.swiper_class {
+  width: 650rpx;
+  height: 73vh;
+}
+
+.swiper_head_title {
+  position: relative;
+  bottom: 0.5vh;
+}
+
+.swiper_item {
+  width: 650rpx;
+  height: 9vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: whitesmoke;
+  box-shadow: 0rpx 0rpx 20rpx 2rpx rgb(218, 241, 241) inset;
+}
+
+.item_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  left: 100rpx;
+  height: 9vh;
+}
+
+.radio {
+}
+
+.button_class {
+  background: rgba(75, 211, 181, 0.295);
+}
+
+.button_hover {
+  background: rgba(168, 228, 215, 0.63);
+}
+
+.swiper_image {
+  height: 50rpx;
+  width: 50rpx;
+  position: relative;
+  left: 370rpx;
+}
+
+.unAuthorizeShow {
+  position: relative;
+  top: 20vh;
+  height: 40vh;
+  width: 700rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.string {
+  position: relative;
+  top: 0.5vh;
+  width: 700rpx;
+  height: 0.1vh;
+  background: gainsboro;
+}
+
+.unAuthorizeText1 {
+  position: relative;
+  top: 3vh;
+}
+
+.unAuthorizeText2 {
+  position: relative;
+  top: 5vh;
+  font-size: 27rpx;
+  color: gainsboro;
+}
+
+.unAuthorizeButton {
+  position: relative;
+  top: 8vh;
+  width: 250rpx;
+}
+
+.werun_show {
+  display: flex;
+  flex-direction: row;
+}
+
+.werun_authorize {
+  position: relative;
+  left: 100rpx;
+  background: rgb(37, 223, 13);
+  border-radius: 20%;
+}
+
+.todaySteps {
+  display: flex;
+  flex-direction: row;
+}
+
+.unFillInfo {
+  width: 450rpx;
+  position: relative;
+  left: 120rpx;
+  top: 20vh;
+}
+
+.unFillInfo_font {
+  color: gainsboro;
+}

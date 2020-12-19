@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "任务广场",
+  "component": true,
+  "usingComponents": {
+    "mp-loading": "/weui-miniprogram/loading/loading"
+  }
+}

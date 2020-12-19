@@ -1,0 +1,170 @@
+<block wx:if="{{step==0}}">
+  <view class="background" style="  background: rgba(172, 235, 225, 0.521);">
+    <view class="choose_gender_view">
+      <text class="choose_gender_font">选择您的性别</text>
+      <view class="choose_gender">
+        <image wx:if="{{gender}}" src="/images/male.png" class="gender_image"></image>
+        <image wx:else src="/images/male_grey.png" class="gender_image" bindtap="switchGender"></image>
+        <image wx:if="{{!gender}}" src="/images/female.png" class="gender_image"></image>
+        <image wx:else src="/images/female_grey.png" class="gender_image" bindtap="switchGender"></image>
+      </view>
+    </view>
+    <view class="choose_activity_level" bindtap="choose_activity_level">
+      <text class="choose_activity_level_font1">运动量</text>
+      <text wx:if="{{activityLevel==-1}}" class="choose_activity_level_font2">请选择您的运动量</text>
+      <text wx:elif="{{activityLevel==0}}" class="choose_activity_level_font2">不运动</text>
+      <text wx:elif="{{activityLevel==1}}" class="choose_activity_level_font2">轻度运动</text>
+      <text wx:elif="{{activityLevel==2}}" class="choose_activity_level_font2">中度运动</text>
+      <text wx:elif="{{activityLevel==3}}" class="choose_activity_level_font2">重度运动</text>
+    </view>
+    <view class="choose_heightAndWeight">
+      <view>
+        <text>请选择你的身高体重</text>
+      </view>
+      <text class="heightAndWeight_font">{{height}}cm  {{weight}}kg</text>
+      <picker-view indicator-style="height: 50px;" class="picker" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+          <view wx:for="{{heights}}" style="line-height: 50px">{{item}}cm</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{weights}}" style="line-height: 50px">{{item}}kg</view>
+        </picker-view-column>
+      </picker-view>
+
+    </view>
+    <view class="button_view">
+      <view class="button" bindtap="backToPersonal">
+        <text class="button_font">返回</text>
+      </view>
+      <view class="button" bindtap="toNextStep1">
+        <text class="button_font">下一步</text>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:elif="{{step==1}}">
+  <view class="background" style="  background: rgba(172, 235, 225, 0.521);">
+    <view class="screen">
+      <text class="screen_font">{{waterCurLevel}}ml</text>
+      <image class="icon_refresh" src="/images/refresh.png" bindtap="refresh"></image>
+      <view class="screen_cup">
+        <text>相当于×{{waterNum}}杯300ml</text>
+        <image class="icon" src="/images/cup.png"></image>
+        <text>的水</text>
+      </view>
+    </view>
+    <view class="suggestion">
+      <text class="suggestion_font">我们根据您的身体数据以及季节情况</text>
+      <text class="suggestion_font">建议您每天至少喝水{{waterLevel}}ml</text>
+      <text class="suggestion_font">您也可以根据个人喜好等因素滑动调整</text>
+    </view>
+    <view class="slider">
+      <image class="icon" src="/images/minus.png" bindtap="changeLevel" data-isadd="false"></image>
+      <view class="slider_view">
+        <slider min="500" max="8400" step="100" value="{{waterCurLevel}}" bindchanging="changeWaterLevel"></slider>
+      </view>
+      <image class="icon" src="/images/add.png" bindtap="changeLevel" data-isadd="true"></image>
+    </view>
+    <view class="fruit">
+      <view>
+        <text style="color:lightslategrey">您是否有每日吃水果的习惯？</text>
+        <switch bindtap="switchFruit"></switch>
+      </view>
+      <view wx:if="{{hasFruit}}" class="fruitTime">
+        <text>您希望我们何时提醒您吃水果</text>
+        <view>
+          <text style="color:lightslategrey">上午 06:30-12:00</text>
+          <switch bindtap="switchFruitTime" data-id="0"></switch>
+        </view>
+        <view>
+          <text style="color:lightslategrey">下午 12:00-18:00</text>
+          <switch bindtap="switchFruitTime" data-id="1"></switch>
+        </view>
+        <view>
+          <text style="color:lightslategrey">晚上 18:00-23:00</text>
+          <switch bindtap="switchFruitTime" data-id="2"></switch>
+        </view>
+      </view>
+    </view>
+    <view class="button_view">
+      <view class="button" bindtap="backToPersonal">
+        <text class="button_font">返回</text>
+      </view>
+      <view class="button" bindtap="toNextStep2">
+        <text class="button_font">下一步</text>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:elif="{{step==2}}">
+  <view class="background" style="background:{{background}}">
+    <view wx:if="{{!showSleep}}" class="choose_getup_view" bindtap="choose_getup">
+      <text class="choose_time_font1">起床时间</text>
+      <text wx:if="{{!hasGetupTime}}" class="choose_time_font2">请选择您的起床时间</text>
+      <text wx:else class="choose_time_font3">{{getupTimeList[getupTime[0]]}}</text>
+    </view>
+    <view wx:if="{{showGetup}}" class="picker_view">
+      <text class="getup_font">请选择您的起床时间</text>
+      <picker-view indicator-style="height: 50px;" style="width: 100rpx; height: 50vh;" value="{{getupTime}}" class="picker_position" bindchange="switchGetupTime">
+        <picker-view-column>
+          <view wx:for="{{getupTimeList}}" style="line-height: 10vh">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+      <view class="confirmOrCancel_screen">
+        <view class="confirmOrCancel_view" bindtap="getupCancel">
+          <text class="confirmOrCancel">取消</text>
+        </view>
+        <view class="confirmOrCancel_view" bindtap="getupConfirm">
+          <text class="confirmOrCancel">确定</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{!showGetup}}" class="choose_sleep_view" bindtap="choose_sleep">
+      <text class="choose_time_font1">就寝时间</text>
+      <text wx:if="{{!hasSleepTime}}" class="choose_time_font2">请选择您的就寝时间</text>
+      <text wx:else class="choose_time_font3">{{sleepTimeList[sleepTime[0]]}}</text>
+    </view>
+    <view wx:if="{{showSleep}}" class="picker_view">
+      <text class="getup_font">请选择您的就寝时间</text>
+      <picker-view indicator-style="height: 50px;" style="width: 100rpx; height: 50vh;" value="{{sleepTime}}" class="picker_position" bindchange="switchSleepTime">
+        <picker-view-column>
+          <view wx:for="{{sleepTimeList}}" style="line-height: 10vh">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+      <view class="confirmOrCancel_screen">
+        <view class="confirmOrCancel_view" bindtap="sleepCancel">
+          <text class="confirmOrCancel">取消</text>
+        </view>
+        <view class="confirmOrCancel_view" bindtap="sleepConfirm">
+          <text class="confirmOrCancel">确定</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{hasGetupTime&&hasSleepTime&&!showGetup&&!showSleep}}" class="timeList">
+      <text class="move_font">您希望我们于何时提醒您</text>
+      <text class="move_font">完成您的{{waterNum}}杯水计划</text>
+      <swiper style="width:600rpx;height:45vh">
+      <swiper-item>
+      <view class="timeList_view">
+        <movable-area style="height:45vh;width:600rpx">
+          <movable-view direction="vertical" style="height:120vh;width:600rpx" class="movable_view">
+            <view wx:for="{{timeList}}" class="timeListUnit">
+            <text class="item_font">{{timeList[index]}}</text>
+            <radio checked="{{timeListButton[index]}}" bindtap="switch_checked" class="radio_position" color="rgba(172, 235, 225, 0.521)"  data-index="{{index}}" ></radio>
+            </view>
+          </movable-view>
+        </movable-area>
+      </view></swiper-item>
+      </swiper>
+      
+    </view>
+    <view class="button_view">
+      <view class="button" bindtap="backToPersonal">
+        <text class="button_font">返回</text>
+      </view>
+      <view class="button" bindtap="saveData">
+        <text class="button_font">下一步</text>
+      </view>
+    </view>
+  </view>
+</block>

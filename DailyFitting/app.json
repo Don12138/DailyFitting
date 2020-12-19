@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/personal/personal",
+    "pages/getInfo/getInfo",
+    "pages/manual/manual",
+    "pages/detail/detail"
+    
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "text": "任务",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/male.png",
+        "selectedIconPath": "images/male.png"
+      },
+      {
+        "text": "图鉴",
+        "pagePath": "pages/manual/manual",
+        "iconPath": "images/male.png",
+        "selectedIconPath": "images/male.png"
+      },
+      {
+        "text": "主页",
+        "pagePath": "pages/personal/personal",
+        "iconPath": "images/male.png",
+        "selectedIconPath": "images/male.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "DailyFitting",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,96 @@
+<block wx:if="{{hasUserInfo}}">
+
+  <view class="container">
+    <view class="top">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="day_show">
+        <text class="day_title">已坚持天数：</text>
+        <text class="day_title">健康生活天数：</text>
+        <view>
+          <block wx:if="{{authorizeWerun}}">
+            <view class="todaySteps" wx:if="{{steps!=-1}}">
+              <text class="day_title">今日步数:        {{steps}}</text>
+            </view>
+            <view wx:else>
+              <text class="day_title">今日步数: </text>
+              <mp-loading type="circle"></mp-loading>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="werun_show">
+              <text class="day_title">今日步数:</text>
+              <view class="werun_authorize" bindtap="switchWerun">点击授权微信步数</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="swiper_head">
+      <button style="width:315rpx" class="button_class" hover-class="button_hover" bindtap="swiperToDaily">
+        <text class="swiper_head_title">今日任务</text>
+      </button>
+      <button style="width:315rpx" class="button_class" hover-class="button_hover" bindtap="swiperToAdditional">
+        <text class="swiper_head_title">额外任务</text>
+      </button>
+    </view>
+    <view class="swiper">
+      <swiper class="swiper_class" indicator-dots="true" current="{{swiperCurrentIndex}}">
+        <swiper-item>
+          <block wx:if="{{!hasFillInfo}}">
+            <movable-area style="height:{{((noOverdue*9>73)||show)?73:(noOverdue)*9}}vh;width:650rpx">
+              <movable-view direction="vertical" style="height: {{show?(dailyTask.length+1)*9:noOverdue*9}}vh;width:650rpx">
+                <view class="swiper_item" bindtap="show">
+                  <view class="item_name">
+                    <text>过期任务</text>
+                    <image wx:if="{{show}}" src="/images/down.png" class="swiper_image"></image>
+                    <image wx:else src="/images/right.png" class="swiper_image"></image>
+                  </view>
+                </view>
+                <view wx:for="{{dailyTask}}" wx:if="{{show||(!item.isOverdue)}}" class="swiper_item">
+                  <view class="item_name" data-index="{{index}}" bindtap="detail">
+                    <text>{{item.name}}    {{item.startHour}}:{{item.startMinute}}--{{item.endHour}}:{{item.endMinute}}</text>
+                  </view>
+                  <radio class="radio" checked="{{item.ischecked}}" bindtap="switchCheck" data-id="{{index}}"></radio>
+                </view>
+              </movable-view>
+            </movable-area>
+          </block>
+          <block wx:else>
+            <view class="unFillInfo">
+              <text class="unFillInfo_font">请在个人页面填写您的个人信息，系统会自动给您生成每日任务哦</text>
+            </view>
+          </block>
+        </swiper-item>
+        <swiper-item>
+          <movable-area style="height:{{((noOverdue*9>73)||show)?73:(noOverdue)*9}}vh;width:650rpx">
+            <movable-view direction="vertical" style="height: {{show?(dailyTask.length+1)*9:noOverdue*9}}vh;width:650rpx">
+              <view class="swiper_item" bindtap="show">
+                <view class="item_name">
+                  <text>过期任务</text>
+                  <image wx:if="{{show}}" src="/images/down.png" class="swiper_image"></image>
+                  <image wx:else src="/images/right.png" class="swiper_image"></image>
+                </view>
+              </view>
+              <view wx:for="{{dailyTask}}" wx:if="{{show||(!item.isOverdue)}}" class="swiper_item">
+                <view class="item_name" data-index="{{index}}" bindtap="detail">
+                  <text>{{item.name}}    {{item.startHour}}:{{item.startMinute}}--{{item.endHour}}:{{item.endMinute}}</text>
+                </view>
+                <radio class="radio" checked="{{item.ischecked}}" bindtap="switchCheck" data-id="{{index}}"></radio>
+              </view>
+            </movable-view>
+          </movable-area>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="container">
+    <view class="unAuthorizeShow">
+      <view class="string"></view>
+      <text class="unAuthorizeText1">尊敬的用户，请确认授权以下信息</text>
+      <text class="unAuthorizeText2">● 获得您的公开信息（昵称，头像等）</text>
+      <button class="unAuthorizeButton" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确定授权</button>
+    </view>
+  </view>
+</block>

@@ -1,0 +1,281 @@
+.background{
+  width: 750rpx;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: -1
+}
+.choose_gender_view{
+  width: 650rpx;
+  height: 25vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 5vh;
+}
+.gender_image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.choose_gender_font{
+  font-size: 45rpx;
+}
+.choose_activity_level{
+  width: 580rpx;
+  height: 7vh;
+  position: relative;
+  top: 10vh;
+  border-radius: 5px;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.choose_activity_level_font1{
+  position: relative;
+  left: 50rpx;
+}
+.choose_activity_level_font2{
+  position: relative;
+  left: 200rpx;
+  color: rgba(0, 0, 0, 0.753)
+}
+
+.choose_heightAndWeight{
+  width: 580rpx;
+  height: 40vh;
+  position: relative;
+  top: 15vh;
+  border-radius: 10px;
+  background: rgb(235, 250, 249);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.picker{
+  position: relative;
+  width: 550rpx;
+  height: 25vh;
+  background: rgb(235, 250, 249);
+  border-radius: 10px;
+}
+.button_view{
+  width: 650rpx;
+  height: 8vh;
+  position: absolute;
+  bottom: 2vh;
+  display: flex;
+  z-index: 0;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.button{
+  width: 230rpx;
+  height: 5vh;
+  background: rgb(235, 250, 249);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button_font{
+  position: relative;
+  top: 0.7vh;
+}
+.screen{
+  width: 650rpx;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.screen_font{
+  font-size: 60px;
+    position: relative;
+  top: 8vh;
+}
+.suggestion{
+  width: 650rpx;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.suggestion_font{
+  color: lightslategrey;
+}
+.slider{
+  width: 650rpx;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+}
+.icon{
+  width: 5vh;
+  height: 5vh;
+}
+.slider_view{
+  width: 550rpx;
+  height: 5vh;
+}
+.icon_refresh{
+  width: 5vh;
+  height: 5vh;
+  position: relative;
+  left: 280rpx;
+}
+.fruit{
+  width: 650rpx;
+  height: 40vh;
+  position: relative;
+  top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fruitTime{
+  display: flex;
+  flex-direction: column;
+  width:450rpx;
+  height: 25vh;
+  position:relative;
+  justify-content: space-between;
+  top: 3vh;
+}
+.screen_cup{
+  width: 400rpx;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.choose_getup_view{
+  width: 580rpx;
+  height: 7vh;
+  position: relative;
+  top: 10vh;
+  border-radius: 5px;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.choose_time_font1{
+  position: relative;
+  left: 50rpx;
+}
+.choose_time_font2{
+  position: relative;
+  left: 150rpx;
+  color: rgba(0, 0, 0, 0.596)
+}
+.picker_view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 650rpx;
+  height: 85vh;
+  position: absolute;
+  top: 10vh;
+  border-radius: 10px;
+  background: white;
+  z-index: 10
+}
+.picker_position{
+  position: relative;
+  top: 2vh;
+}
+.getup_font{
+  color: rgba(0, 0, 0, 0.596);
+  font-size: 45rpx;
+  position: relative;
+  top: 2vh;
+}
+.confirmOrCancel_screen{
+  position: relative;
+  top:20vh;
+  width: 650rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.confirmOrCancel_view{
+  border-radius: 10px;
+  width: 200rpx;
+  height: 7vh;
+  background: gainsboro;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.confirmOrCancel{
+  color: whitesmoke;
+  position: relative;
+  top: 1.5vh;
+}
+.choose_time_font3{
+    position: relative;
+  left:350rpx;
+  color: rgba(0, 0, 0, 0.596)
+}
+.choose_sleep_view{
+  width: 580rpx;
+  height: 7vh;
+  position: relative;
+  top: 15vh;
+  border-radius: 5px;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.timeList{
+  width: 650rpx;
+  height: 53vh;
+  border-radius: 5px;
+  position: relative;
+  top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: whitesmoke;
+}
+.heightAndWeight_font{
+  position: relative;
+  bottom: 2vh;
+}
+.move_font{
+  color: rgb(0, 0, 0);
+  font-size: 30rpx;
+}
+.timeListUnit{
+  border-radius: 5px;
+  height: 9vh;
+  width: 600rpx;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.timeList_view{
+  height:45vh;
+  width:600rpx
+}
+.movable_view{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around
+}
+.item_font{
+  position: relative;
+  left: 250rpx;
+  color: gainsboro;
+  font-size: 45rpx;
+}
+.radio_position{
+  position: relative;
+  left: 400rpx;
+}
